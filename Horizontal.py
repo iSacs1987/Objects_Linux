@@ -5,33 +5,22 @@ The program for explaining horizontal scales.
 import tkinter as tk
 
 
-class Horizontal:
-    def __init__(self):
-        self.root = tk.Tk()
-        self.root.geometry("400x300")
-        self.v1 = tk.DoubleVar()
-        self.scale1 = tk.Scale(
-            self.root,
-            variable=self.v1,
-            from_=1,
-            to=10,
-            orient="horizontal",
-            resolution=0.2,
-        )
-        self.label1 = tk.Label(self.root, text="Horizontal Scaler")
-        self.button1 = tk.Button(
-            self.root, text="Display Horizontal", command=self.show1, bg="yellow"
-        )
-        self.label2 = tk.Label(self.root)
-        self.scale1.pack(anchor="center")
-        self.label1.pack()
-        self.button1.pack(anchor="center")
-        self.label2.pack()
-        self.root.mainloop()
-
-    def show1(self):
-        sel = "Horizontal Scale Value = " + str(self.v1.get())
-        self.label2.config(text=sel,)
+def show1():
+    sel = "Horizontal Scale Value = " + str(v1.get())
+    label2.config(text=sel,)
 
 
-Horizontal()
+root = tk.Tk()
+root.geometry("400x300")
+v1 = tk.DoubleVar()
+scale1 = tk.Scale(
+    root, variable=v1, from_=1, to=10, orient="horizontal", resolution=0.2,
+)
+label1 = tk.Label(root, text="Horizontal Scaler")
+button1 = tk.Button(root, text="Display Horizontal", command=show1, bg="yellow")
+label2 = tk.Label(root)
+scale1.pack(anchor="center")
+label1.pack()
+button1.pack(anchor="center")
+label2.pack()
+root.mainloop()

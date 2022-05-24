@@ -5,47 +5,41 @@ The program for explaining List Boxes with a Button.
 import tkinter as tk
 
 
-class ListBox:
-    def __init__(self):
-        self.root = tk.Tk()
-        self.root.geometry("200x200")
-        self.root.resizable(False, False)
-        self.root.title("Listbox")
-        self.langs = [
-            "Java",
-            "C#",
-            "C",
-            "C++",
-            "Python",
-            "Go",
-            "JavaScript",
-            "PHP",
-            "Swift",
-        ]
-        self.langs_var = tk.StringVar(value=self.langs)
-        self.listbox = tk.Listbox(
-            self.root,
-            listvariable=self.langs_var,
-            height=9,
-            selectmode="multiple",
-            selectbackground="blue",
-            selectforeground="snow",
-        )
-        self.button1 = tk.Button(
-            self.root, text="Click Me", command=self.items_selected
-        )
-        self.listbox.pack(fill="both")
-        self.button1.pack()
-        self.root.mainloop()
-
-    def items_selected(self):
-        languages = []
-        selected_indices = self.listbox.curselection()
-        for i in selected_indices:
-            index = self.listbox.get(i)
-            languages.append(index)
-        for lang in languages:
-            print("You selected:", lang)
+def items_selected():
+    languages = []
+    selected_indices = listbox.curselection()
+    for i in selected_indices:
+        index = listbox.get(i)
+        languages.append(index)
+    for lang in languages:
+        print("You selected:", lang)
 
 
-ListBox()
+root = tk.Tk()
+root.geometry("200x200")
+root.resizable(False, False)
+root.title("Listbox")
+langs = [
+    "Java",
+    "C#",
+    "C",
+    "C++",
+    "Python",
+    "Go",
+    "JavaScript",
+    "PHP",
+    "Swift",
+]
+langs_var = tk.StringVar(value=langs)
+listbox = tk.Listbox(
+    root,
+    listvariable=langs_var,
+    height=9,
+    selectmode="multiple",
+    selectbackground="blue",
+    selectforeground="snow",
+)
+button1 = tk.Button(root, text="Click Me", command=items_selected)
+listbox.pack(fill="both")
+button1.pack()
+root.mainloop()

@@ -5,21 +5,15 @@ This is the first example for working with check boxes.
 import tkinter as tk
 
 
-class Check:
-    def __init__(self):
-        self.root = tk.Tk()
-        self.root.geometry("150x100")
-        self.checkValue = tk.BooleanVar()
-        self.checkValue.set(True)
-        self.check1 = tk.Checkbutton(
-            self.root, text="Check Box", var=self.checkValue, command=self.Print_Check
-        )
-        self.check1.pack(side="left")
-        self.root.mainloop()
-
-    def Print_Check(self):
-        Checking = self.checkValue.get()
-        print("Currently the value of your Checkbutton is", Checking)
+def Print_Check():
+    Checking = checkValue.get()
+    print("Currently the value of your Checkbutton is", Checking)
 
 
-Check()
+root = tk.Tk()
+root.geometry("150x100")
+checkValue = tk.BooleanVar()
+checkValue.set(True)
+check1 = tk.Checkbutton(root, text="Check Box", var=checkValue, command=Print_Check)
+check1.pack(side="left")
+root.mainloop()
