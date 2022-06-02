@@ -1,5 +1,7 @@
 """
-This is the second exampl for radio buttons.
+This is the second exampl for radio buttons. The only difference here is that
+I use the indicator attribute to create a so called button box. I won't explain
+this program in detail, since it's functional identical to Radio.py
 """
 import tkinter as tk
 
